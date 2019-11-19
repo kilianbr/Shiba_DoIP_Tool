@@ -66,7 +66,7 @@ payloadTypeDescription = {
 }
 
 # to be changed later as an option in terminal
-defaultTargetIPAddr = '172.26.200.101'
+defaultTargetIPAddr = '192.168.137.34'
 defaultTargetECUAddr = '2004'
 
 def PadHexwithLead0s(hexStr):
@@ -443,7 +443,7 @@ def DoIP_Routine_Control(subfunction, routine, op, verbose=False):
     else:
         print "TCP Socket creation failed."
 
-def DoIP_Flash_Hex(componentID, ihexFP, hostECUAddr = '1111', serverECUAddr = '2004',targetIP='172.26.200.101', verbose=False, multiSegment=True):
+def DoIP_Flash_Hex(componentID, ihexFP, hostECUAddr = '1111', serverECUAddr = '2004',targetIP='192.168.137.34', verbose=False, multiSegment=True):
 	# get necessary dependencies
 	import progressbar
 
@@ -676,7 +676,7 @@ def DoIP_Flash_Hex(componentID, ihexFP, hostECUAddr = '1111', serverECUAddr = '2
 		print "Error while creating flash client. Unable to initiate flash sequence."
 
 
-def DoIP_Erase_Memory(componentID, targetIP='172.26.200.101', verbose=False):
+def DoIP_Erase_Memory(componentID, targetIP='192.168.137.34', verbose=False):
     # Function to erase component ID
     print "Erasing memory from component ID: " + (componentID)
     # start a DoIP client
@@ -714,7 +714,7 @@ def DoIP_Erase_Memory(componentID, targetIP='172.26.200.101', verbose=False):
         print "Error while creating DoIP client. Unable to initiate erase memory sequence."
 
 
-def Test_Switch_Diagnostic_Session(targetIP='172.26.200.101', sessionID=1, verbose=False):
+def Test_Switch_Diagnostic_Session(targetIP='192.168.137.34', sessionID=1, verbose=False):
     # Function to Switch Diagnostic Session Then Close Socket
     print "Switching to sessionID: " + str(sessionID)
     # start a DoIP client
@@ -782,7 +782,7 @@ def main():
 	optional.add_argument("-blockID", nargs = 1, default = ['2'], type = str, help = "Target memory region to flash to : 0)BL, 1)CAL, 2)APP. Default: 2")
 	optional.add_argument("-clientID", nargs = 1, default = ['1111'] ,type = str, help = "Host ECU id to flash from in hex format, i.e. 1111 will be read as 0x1111. Default: 1111")
 	optional.add_argument("-serverID", nargs =1, default = ['2004'],type = str, help = "Target ECU id to flash to in hex format, i.e. 2004 will be read as 0x2004. Default: 2004")
-	optional.add_argument("-targetIP", nargs = 1,default = ['172.26.200.101'], type = str, help = "Target IP address of ECU, e.g. 192.168.7.2. Default: 172.26.200.101")
+	optional.add_argument("-targetIP", nargs = 1,default = ['192.168.137.34'], type = str, help = "Target IP address of ECU, e.g. 192.168.7.2. Default: 192.168.137.34")
 	optional.add_argument("-sessionID", nargs = 1,default = ['1'], type = str, help = "Diagnostic session: 1) defaultsession, 2) programming, 3) extended. Default: 1")
 	optional.add_argument("-v", "--verbose", help="Set verbosity. Default: false", action="store_true")
 	optional.add_argument("-sb", "--singleBlock", help="Set single block download. Default: false (multi-block download)", action="store_true")
