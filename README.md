@@ -3,7 +3,7 @@ It is meant to be cross platform across windows, linux, and mac. In its current 
 major functionality sits in PyDoIP.py in the DoIP directory, and is operated over command line, but will
 in the future be supported by a GUI as well. 
 
-To flash an ECU, start by changing your machine's IP address to static 172.26.200.15. 
+To flash an ECU, start by changing your machine's IP address to static 192.168.137.34. 
 Drag a hex file into the DoIP directory, and call "python PyDoIP.py flash <hex file.hex> <component ID, 0 = bootloader, 1 = calibration, 2 = application>
 Flashing offers a number of different options including downloading via multiple downloads, as well as choosing different IP addresses to target. 
 
